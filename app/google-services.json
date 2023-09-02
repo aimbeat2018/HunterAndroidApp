@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "659435454356",
+    "firebase_url": "https://hunter-d2f8b-default-rtdb.firebaseio.com",
+    "project_id": "hunter-d2f8b",
+    "storage_bucket": "hunter-d2f8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659435454356:android:2640beb6c3b6b848485981",
+        "android_client_info": {
+          "package_name": "ott.hunter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659435454356-ceqbkppc3456ghf0ubpuq74ne7opi20r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ott.hunter",
+            "certificate_hash": "86a04e547e0fea770b3258faed0b4273e88693d9"
+          }
+        },
+        {
+          "client_id": "659435454356-e2o7kfsrkhjfl5qkjv4nbikmg26qfjc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ott.hunter",
+            "certificate_hash": "73af231d53419af1481b35bc7f657ccc4ffa44c4"
+          }
+        },
+        {
+          "client_id": "659435454356-egcioaijkn1h7qsq4liff1s4nji4qh96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwhK-bnEIhCBX_8cegTfMwO2WmMpr1Neo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659435454356-egcioaijkn1h7qsq4liff1s4nji4qh96.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659435454356-chf50t24ndikslo8otagvhq7i9civha0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hunter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

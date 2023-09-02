@@ -1,0 +1,254 @@
+<resources>
+    <string name="facebook_app_id" translatable="false">1816197382088745</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1816197382088745</string>
+    <string name="facebook_application_id" translatable="false">1816197382088745</string>
+    <string name="facebook_client_token" translatable="false">62576940cb049d34db9d63d14a96e622</string>
+    //admob
+    <string name="admob_application_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    //startapp
+
+    <string name="app_name">Hunters</string>
+    <!--app_title for main navigation & home title-->
+    <string name="app_title">Hunters - Live TV &amp; Movie</string>
+    <string name="contact_email">customercare@hunters.co.in</string>
+    <string name="copyright_text">Copyright @ Hunters, All right reserved</string>
+
+    <!-- App -->
+    <string name="featured_tv_channels">Featured Tv Channel</string>
+    <string name="trendingnow">Trending Now</string>
+    <string name="latest_tv_series"><!--Latest-->New Released</string>
+    <string name="cp_gold"><!--Latest-->Rent on watch</string>
+    <string name="more">More</string>
+    <string name="movie">Movies</string>
+    <string name="live_tv">Live TV</string>
+    <!--    <string name="tv_series">Tv Series</string>-->
+    <string name="tv_series">Web Series</string>
+    <string name="country">Country</string>
+    <string name="lang">Language</string>
+    <string name="genre">Genre</string>
+    <string name="search">Search</string>
+    <string name="reels">Reels</string>
+    <string name="no_item_found">No Items In Watchlist</string>
+    <string name="cast_n_crew">Cast and Crew</string>
+    <string name="reset">Reset Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="email1">Email</string>
+    <string name="mobile_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="save">Save</string>
+    <string name="director">Director :</string>
+    <string name="comments">Comments</string>
+    <string name="your_comments">Your Comments</string>
+    <string name="add_comments">Add Comments</string>
+    <string name="no_internet">No internet connection !</string>
+    <string name="fetch_error">Unable to fetch data</string>
+    <string name="login_first">You need to login first</string>
+    <string name="comment_empty">Comment can not empty</string>
+    <string name="error_toast">Something went wrong ! try later</string>
+    <string name="vpn_detected">VPN Detected!!</string>
+    <string name="close_vpn">Close VPN and re-open this app.</string>
+    <string name="track_selection_title">Change Track</string>
+    <string name="age_verify">you are 18+?</string>
+    <string name="download_start_error">Failed to start download</string>
+    <string-array name="nav_item_name">
+        <!--<item>Home</item>
+        <item>Movies</item>
+        <item>Series</item>
+        <item>Live TV</item>
+        <item>Genre</item>
+        <item>Country</item>-->
+        <item>Profile</item>
+        <!--        <item>My Transaction</item>-->
+        <!--        <item>Favorite</item>-->
+        <!--        <item>Subscription</item>-->
+        <item>Subscription</item>
+        <!--        <item>Have a Promo code?</item>-->
+        <!--        <item>Downloads</item>-->
+        <item>Settings</item>
+        <item>Help</item>
+        <item>Privacy Policy</item>
+        <item>Sign Out</item>
+
+    </string-array>
+
+    <string-array name="nav_item_image">
+        <!--<item>outline_home_24</item>
+        <item>outline_movie_24</item>
+        <item>outline_local_movies_24</item>
+        <item>outline_live_tv_24</item>
+        <item>outline_folder_24</item>
+        <item>outline_outlined_flag_24</item>-->
+        <item>profile</item>
+        <!--        <item>ic_transaction</item>-->
+        <!--        <item>outline_favorite_border_24</item>-->
+        <item>premium</item>
+        <!--        <item>ic_promo_code</item>-->
+        <!--        <item>ic_file_download_black_24dp</item>-->
+        <item>setting</item>
+        <item>support</item>
+        <item>terms</item>
+        <item>logout</item>
+    </string-array>
+
+
+    <string-array name="nav_item_name_2">
+        <!--   <item>Home</item>
+           <item>Movies</item>
+           <item>Series</item>
+           <item>Live TV</item>
+           <item>Genre</item>
+           <item>Country</item>-->
+        <item>Login</item>
+        <item>Settings</item>
+    </string-array>
+
+    <string-array name="nav_item_image_2">
+        <!--   <item>outline_home_24</item>
+           <item>outline_movie_24</item>
+           <item>outline_local_movies_24</item>
+           <item>outline_live_tv_24</item>
+           <item>outline_folder_24</item>
+           <item>outline_outlined_flag_24</item>-->
+        <item>outline_lock_24</item>
+        <item>outline_settings_24</item>
+    </string-array>
+
+
+    <!-- payment related to Settings -->
+    <!--PayPal accepted currency-->
+
+
+    <!--search range-->
+    <string name="year_range_start">1900</string>
+    <string name="year_range_end">2021</string>
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+    <!-- Example settings for Notifications -->
+
+    <string name="title_activity_item_show">ItemShowActivity</string>
+    <string name="video_quality">Video Quality - 480p, 720p, 1080p</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_reply">ReplyActivity</string>
+    <string name="program_guide">Program Guide</string>
+    <string name="live">Live</string>
+    <string name="watching_on">Watching live on</string>
+    <string name="all_tv_channel">All TV Channels</string>
+    <string name="you_may_also_like">You may also like</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="tv_channels">Tv Channels</string>
+    <string name="watching_catch_up_tv">Watching Catch-up TV</string>
+    <string name="deactive_account_text">If you do not want to use this account you can de-active easily.</string>
+    <string name="reason_to_deactivate_account">Reason to deactivate account</string>
+    <string name="enter_password">Enter Password</string>
+
+    <string name="deactivate_account">Deactivate Account</string>
+    <string name="explore_by_genre">Explore By Genre</string>
+    <string name="explore_by_language">Explore By Language</string>
+    <string name="share_body">I would like to share this TV &amp; Movie App.  Here you can download this from playstore :\n    https://play.google.com/store/apps/details?id=</string>
+    <string name="term_of_services">Term of Services</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="account_deactivate_info"><![CDATA[Your account will be deactivate & only admin can activate again.]]></string>
+    <string name="regular_program">Regular Program</string>
+    <string name="international">International</string>
+    <string name="server">Server</string>
+    <string name="_1080p">1080P</string>
+    <string name="dummy_name">Jhon Doe</string>
+    <string name="others_small">Others</string>
+    <string name="no_data_found">No data found.</string>
+    <string name="no_subscription_history">No subscription history found.</string>
+    <string name="plan">Plan</string>
+    <string name="upgrade_membership">Upgrade Membership</string>
+    <string name="p_date">P.Date</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="status">Status</string>
+
+
+    <string name="paid_content">You are trying to watch a paid content. Please subscribe a plan first.</string>
+    <string name="paid_content_gold">You are trying to watch a paid content. Please Buy first.</string>
+    <string name="subscription_required">Subscription Required</string>
+    <string name="subscribe_text">Subscribe</string>
+    <string name="retry_connection">Retry</string>
+    <string name="view_offline">Go To Downloads</string>
+    <string name="buy_text">Buy</string>
+    <string name="payment_success">Payment Success.</string>
+    <string name="subscribe_error">To subscribe a plan, you have to login first.</string>
+    <string name="something_went_text">Something went wrong, try again or contact to your developer.</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="go_back">Go Back</string>
+    <string name="watch_now">Watch Now</string>
+    <string name="watch_list">Watchlist</string>
+    <string name="download">Download</string>
+    <string name="select_server">Select Server</string>
+    <string name="home">Home</string>
+    <string name="all_kids_videos">All Kids Videos</string>
+    <string name="unlimited_movies">Unlimited Movies</string>
+    <string name="unlimited_series">Unlimited Webseries</string>
+    <string name="please_select_your_payment_method">Please select your payment method</string>
+    <string name="download_appear_text">Your download item will be appear here.  Download item not found.</string>
+    <string name="send">Send</string>
+    <string name="searcHError_message">Title Or Type can\'t be empty</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="instruction_3">3. Then click on "Connect To TV."</string>
+
+    <!-- dialog instruction -->
+    <string name="dialog_instruction_1">1. Go to your </string>
+    <string name="dialog_instruction_2"> app in your phone. </string>
+    <string name="dialog_instruction_3">2. Buy a package </string>
+    <string name="continue_browsing">Continue browsing</string>
+    <string name="year_range">Year Range</string>
+    <string name="cancel">Cancel</string>
+    <string name="tv_category">TV Category</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="all_language">All Language</string>
+    <string name="all_categories">All Categories</string>
+    <string name="external_download">External Download</string>
+    <string name="inApp_download">In App Download</string>
+    <string name="all_genres">All Genres</string>
+    <string name="download_not_permitted">You must have subscription to download this video.</string>
+    <string name="phone_number">Phone number</string>
+    <string name="gender">Gender</string>
+    <string name="user_name_">User Name:</string>
+    <string name="active_plan_">Active Plan:</string>
+    <string name="email_">Email:</string>
+    <string name="expire_date_">Expire Date:</string>
+    <string name="active_subscription">Active Subscription</string>
+    <string name="no_download_server_found">No download link found</string>
+    <string name="no_video_found">No video found</string>
+    <string name="failed_to_communicate">Failed to communicate with server. \nPlease check your API configuration</string>
+    <string name="no_configuration_data_found">No configuration data found.</string>
+    <string name="please_login_first_to_see_favorite_list">Please login to see favorite list.</string>
+    <string name="episode">Episode</string>
+    <string name="continue_watching">Continue Watching</string>
+    <string name="popular_stars">Popular Stars</string>
+    <string name="report_intro">Please describe your issue so that we can fix it asap. Note: This feature used to report for current movie, not using for requesting new subtitle/audio in another languages.</string>
+    <string name="broken">Broken</string>
+    <string name="wrong_movie">Wrong Movie</string>
+    <string name="not_synced">Not Synced</string>
+    <string name="audio">Audio</string>
+    <string name="wrong_subtitle">Wrong Subtitle</string>
+    <string name="missing_subtitle">Missing Subtitle</string>
+    <string name="your_name">Your Name</string>
+    <string name="message">Message</string>
+    <string name="entermessage">Enter Message</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="request">Request</string>
+    <string name="download_started_on_notification_bar">Download started.</string>
+    <string name="clear">Clear</string>
+    <string name="loading">Loading</string>
+    <string name="movies">Movies</string>
+
+
+    <string name="cancel_str"><u>Cancel</u></string>
+    <string name="dialog_option">%1$dp - %2$s</string>
+</resources>

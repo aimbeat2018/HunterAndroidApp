@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home_white"
+        android:title="@string/home" />
+    <!-- <item
+         android:title="@string/movie"
+         android:icon="@drawable/icon_movie"/>
+     <item
+         android:title="@string/live"
+         android:icon="@drawable/icon_tv"/>-->
+    <item
+        android:id="@+id/watch_list"
+        android:icon="@drawable/ic_search_white"
+        android:iconTint="@color/white"
+        android:title="@string/search" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/reels"
+        android:title="@string/reels" />
+
+
+    <item
+        android:id="@+id/download"
+        android:icon="@drawable/ic_download11"
+        android:iconTint="@color/white"
+        android:title="@string/download" />
+
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_account_circle_black"
+        android:title="Account" />
+    <!-- <item
+         android:icon="@drawable/ic_download"
+         android:title="@string/gold_cine_prime" />-->
+</menu>

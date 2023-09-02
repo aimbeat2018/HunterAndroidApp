@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ott.hunter"
+    tools:ignore="MissingLeanbackLauncher">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- <queries> -->
+    <!-- <package android:name="net.one97.paytm" /> -->
+    <!-- <intent> -->
+    <!-- <action android:name="android.intent.action.MAIN" /> -->
+    <!-- </intent> -->
+    <!-- </queries> -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data
+                android:host="pay"
+                android:scheme="upi" />
+        </intent>
+
+        <package android:name="com.android.chrome" />
+        <package android:name="com.google.android.apps.nbu.paisa.user" />
+    </queries>
+
+
+    <application
+        android:name=".utils.MyAppClass"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:launchMode="singleTask"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:usesCleartextTraffic,android:theme,android:allowBackup">
+        <activity
+            android:name=".reels.ReelsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".GrievanceSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FavActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".NoInternet"
+            android:exported="false" />
+        <activity
+            android:name=".widget.OfflinePlayerNewActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MobileNumberSignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinalPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OtpForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemPopularActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <!--        <activity-->
+        <!--            android:name=".widget.OfflinePlayerNewActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:screenOrientation="portrait" />-->
+        <activity
+            android:name=".LoginViaMobileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OtpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CashFreePaymentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ItemGoldSeriesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".more.ApplyPromoCodeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".more.HelpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".more.MyTransactionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RazorPayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GoldRazorPayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PapalPaymentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".WebViewActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_application_id" /> <!-- <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/> -->
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+        <meta-data
+            android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+            android:value="true" />
+        <!--
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
+        -->
+        <!--
+  <meta-data
+              android:name="com.google.android.gms.version"
+              android:value="@integer/google_play_services_version" />
+        -->
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" /> <!-- facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_application_id"
+            tools:replace="android:value" /> <!-- razorpay metadata -->
+        <!--
+ <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_live_eHkQKgddhVS9ub"/>
+        -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity> <!-- facebook end -->
+        <activity
+            android:name=".TermsActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".ReplyActivity"
+            android:label="@string/title_activity_reply"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".PassResetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".SearchResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".LoginSocialNumberNotFoundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".DetailsActivity"
+            android:configChanges="screenLayout|screenSize|orientation"
+            android:label="@string/title_activity_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+
+        <activity
+            android:name=".GoldDetailsActivity"
+            android:configChanges="screenLayout|screenSize|orientation"
+            android:label="@string/title_activity_details"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" /> <!-- android:configChanges="screenLayout|screenSize|orientation" -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Branch URI scheme -->
+            <intent-filter>
+                <data
+                    android:host="open"
+                    android:scheme="ott.hunter" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <!-- Branch App Links -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="hunters.app.link"
+                    android:scheme="https" />
+                <!--                <data-->
+                <!--                    android:host="primeplay.test-app.link"-->
+                <!--                    android:scheme="https" />-->
+                <data
+                    android:host="hunters-alternate.app.link"
+                    android:scheme="https" />
+                <!--                <data-->
+                <!--                    android:host="primeplay-alternate.test-app.link"-->
+                <!--                    android:scheme="https" />-->
+            </intent-filter>
+        </activity>
+
+        <!-- Branch init -->
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_mscfPRS4dHJyMDhUkEG83kojFvnRrpMH" />
+        <!--        <meta-data-->
+        <!--            android:name="io.branch.sdk.BranchKey.test"-->
+        <!--            android:value="key_test_htkeKSJuGtD0L26zt30XKhpdzBhTFNDy" />-->
+        <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+
+
+        <activity
+            android:name=".ItemMovieActivity"
+            android:label="@string/title_activity_item_show"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ItemTVActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".ItemSeriesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".SubscriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".StripePaymentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".PurchasePlanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+        <activity
+            android:name=".DownloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Nobar" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ppapplogo" />
+        <!--        Test mode-->
+        <meta-data
+            android:name="CLEVERTAP_ACCOUNT_ID"
+            android:value="8R9-4W4-Z96Z" />
+        <meta-data
+            android:name="CLEVERTAP_TOKEN"
+            android:value="404-c2b" />
+
+        <meta-data
+            android:name="CLEVERTAP_REGION"
+            android:value="in1" />
+        <!--
+               clevertap pull notofication and enable toggle button of pull notofication on clevertap dashbord-setting-setup-push notification
+        -->
+        <meta-data
+            android:name="CLEVERTAP_BACKGROUND_SYNC"
+            android:value="1"/>
+        <!--
+                clevertap Exclude in-app from Android Activity
+        -->
+        <meta-data
+            android:name="CLEVERTAP_INAPP_EXCLUDE"
+            android:value="SplashScreenActivity" />
+
+        <!--
+
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <service
+            android:name=".firebaseservice.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+        <receiver
+            android:name=".firebaseservice.BootReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver> <!-- Google pay -->
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+
+
+        <service
+            android:name=".offlinedownload.DemoDownloadService"
+            android:exported="false">
+
+            <!-- This is needed for Scheduler -->
+            <intent-filter>
+                <action android:name="com.google.android.exoplayer.downloadService.action.RESTART" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.android.exoplayer2.scheduler.PlatformScheduler$PlatformSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>

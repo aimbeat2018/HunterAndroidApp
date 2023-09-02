@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="40dp"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
+    app:cardCornerRadius="7dp"
+    android:id="@+id/card_view"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp">
+
+    <LinearLayout
+
+        android:id="@+id/item_layout"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@android:color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_vol_type_tv_dark"/>
+
+        <TextView
+            android:id="@+id/genre_name_tv"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            tools:text="@string/international"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:ellipsize="middle"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

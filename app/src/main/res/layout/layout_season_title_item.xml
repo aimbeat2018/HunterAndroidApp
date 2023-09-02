@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_home"
+    android:layout_width="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="7dp"
+   app:cardBackgroundColor="@color/black_window"
+    android:nestedScrollingEnabled="false"
+    android:layout_margin="@dimen/spacing_medium">
+
+
+    <TextView
+        android:id="@+id/crew_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="season name"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:ellipsize="end"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_server_list"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:nestedScrollingEnabled="false"/>
+
+
+
+
+</androidx.cardview.widget.CardView>

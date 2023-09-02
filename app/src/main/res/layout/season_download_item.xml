@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/seasonDownloadLayout"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_margin="@dimen/spacing_medium"
+    android:elevation="@dimen/spacing_medium"
+    android:padding="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/spacing_small">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lnr_download"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_transparent2">
+
+        <TextView
+            android:id="@+id/episodeNameOfSeasonDownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/spacing_middle"
+            android:layout_weight="1"
+            android:text="EpisodeName"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/downloadImageViewOfSeasonDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/spacing_middle"
+            android:layout_toLeftOf="@+id/line_progress"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_download" />
+
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/line_progress"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:visibility="gone"
+            app:progress_style="solid" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>
