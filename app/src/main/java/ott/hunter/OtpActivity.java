@@ -393,6 +393,7 @@ public class OtpActivity extends AppCompatActivity {
     }
 
 
+
     private void changeDevice() {
 //        progressBar.setVisibility(View.VISIBLE);
         dialog.show();
@@ -541,6 +542,8 @@ public class OtpActivity extends AppCompatActivity {
             email = "";
         }
 
+
+
         Retrofit retrofit = RetrofitClient.getRetrofitInstance();
         LoginApi api = retrofit.create(LoginApi.class);
         Call<ResponseBody> call = api.login_otp(AppConfig.API_KEY, mobile, email);
@@ -584,6 +587,7 @@ public class OtpActivity extends AppCompatActivity {
 
                 }
             }
+
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {

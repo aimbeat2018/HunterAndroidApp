@@ -512,7 +512,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
         setContentView(R.layout.activity_details);
 
 
-
         offlineDatabaseHelper = new DatabaseHelper(DetailsActivity.this);
         //check vpn connection
         helperUtils = new HelperUtils(DetailsActivity.this);
@@ -521,6 +520,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
             helperUtils.showWarningDialog(DetailsActivity.this, getString(R.string.vpn_detected), getString(R.string.close_vpn));
             return;
         }
+
 
         db = new DatabaseHelper(DetailsActivity.this);
 

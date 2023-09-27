@@ -28,7 +28,10 @@ import ott.hunter.network.RetrofitClient;
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
 import com.android.installreferrer.api.ReferrerDetails;
+import com.clevertap.android.pushtemplates.PushTemplateNotificationHandler;
 import com.clevertap.android.sdk.ActivityLifecycleCallback;
+import com.clevertap.android.sdk.CleverTapAPI;
+import com.clevertap.android.sdk.interfaces.NotificationHandler;
 import com.facebook.FacebookSdk;
 import com.google.android.exoplayer2.database.DatabaseProvider;
 import com.google.android.exoplayer2.database.ExoDatabaseProvider;
@@ -120,6 +123,7 @@ public class MyAppClass extends Application {
 //        MultiDex.install(this);
     }
 
+
     @Override
     public void onCreate() {
 
@@ -127,6 +131,10 @@ public class MyAppClass extends Application {
 
         super.onCreate();
 
+
+
+//used for different template  type push notification
+        CleverTapAPI.setNotificationHandler((NotificationHandler)new PushTemplateNotificationHandler());
 
 //for sharechat
         referrerClient = InstallReferrerClient.newBuilder(this).build();
@@ -412,6 +420,8 @@ public class MyAppClass extends Application {
             com.google.android.exoplayer2.util.Log.e(TAG, "Failed to upgrade action file: " + fileName, e);
         }
     }
+
+
 
     private synchronized void initDownloadManager() {
         if (downloadManager == null) {

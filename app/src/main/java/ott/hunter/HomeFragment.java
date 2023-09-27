@@ -6,6 +6,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -166,6 +168,7 @@ public class HomeFragment extends Fragment {
     Button btn_more_Gold;
     RecyclerView recyclerViewGold;
     ImageView imgFree;
+ImageButton fblink,instalink,youtubelink,twitterlink;
 
     @Nullable
     @Override
@@ -174,6 +177,7 @@ public class HomeFragment extends Fragment {
         activity = (MainActivity) getActivity();
 
         return inflater.inflate(R.layout.fragment_home, null);
+
     }
 
     @Override
@@ -182,6 +186,12 @@ public class HomeFragment extends Fragment {
         db = new DatabaseHelper(getContext());
 
         btnMoreSeries = view.findViewById(R.id.btn_more_series);
+
+        fblink = view.findViewById(R.id.fblink);
+        instalink = view.findViewById(R.id.instalink);
+        youtubelink = view.findViewById(R.id.youtubelink);
+        twitterlink = view.findViewById(R.id.twitterlink);
+
         btnMoreTv = view.findViewById(R.id.btn_more_tv);
         tvseries = view.findViewById(R.id.tvseries);
         btnMoreMovie = view.findViewById(R.id.btn_more_movie);
@@ -218,6 +228,7 @@ public class HomeFragment extends Fragment {
         btn_more_Gold = view.findViewById(R.id.btn_more_Gold);
         recyclerViewGold = view.findViewById(R.id.recyclerViewGold);
 
+
         imgFree.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), ItemMovieActivity.class);
             intent.putExtra("id", "17");
@@ -226,6 +237,45 @@ public class HomeFragment extends Fragment {
             getContext().startActivity(intent);
         });
 
+
+        fblink.setOnClickListener(v -> {
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse("https://www.facebook.com/profile.php?id=100088118545564"));
+            getContext().startActivity(i);
+
+
+        });
+
+
+        twitterlink.setOnClickListener(v -> {
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            //i.setData(Uri.parse("https://www.youtube.com/channel/UC2U1WBF9g47zkb3ENy4O5jA"));
+            i.setData(Uri.parse("https://twitter.com/HuntersottApp"));
+            getContext().startActivity(i);
+
+        });
+
+        instalink.setOnClickListener(v -> {
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            //i.setData(Uri.parse("https://www.youtube.com/channel/UC2U1WBF9g47zkb3ENy4O5jA"));
+            i.setData(Uri.parse("https://instagram.com/huntersott?igshid=MTg0ZDhmNDA="));
+            getContext().startActivity(i);
+
+        });
+
+
+        youtubelink.setOnClickListener(v -> {
+
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            //i.setData(Uri.parse("https://www.youtube.com/channel/UC2U1WBF9g47zkb3ENy4O5jA"));
+            i.setData(Uri.parse("https://www.youtube.com/channel/UCzVg4Lz_aD75ue_-0X3dspA"));
+            getContext().startActivity(i);
+
+
+        });
 
         tvseries.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), ItemSeriesActivity.class);
@@ -275,6 +325,7 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
 
 
         // --- genre recycler view ---------

@@ -464,6 +464,7 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
 
     }
 
+
     private void updateActiveStatus() {
         Retrofit retrofit = RetrofitClient.getRetrofitInstance();
         SubscriptionApi subscriptionApi = retrofit.create(SubscriptionApi.class);

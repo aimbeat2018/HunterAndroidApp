@@ -25,7 +25,6 @@
     <!-- </queries> -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
-
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -38,7 +37,6 @@
         <package android:name="com.android.chrome" />
         <package android:name="com.google.android.apps.nbu.paisa.user" />
     </queries>
-
 
     <application
         android:name=".utils.MyAppClass"
@@ -54,20 +52,25 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:usesCleartextTraffic,android:theme,android:allowBackup">
         <activity
+            android:name=".OneUPIPaymentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".reels.ReelsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".GrievanceSupportActivity"
             android:exported="false" />
         <activity
             android:name=".FavActivity"
             android:exported="false" />
-
         <activity
             android:name=".NoInternet"
             android:exported="false" />
@@ -90,11 +93,10 @@
         <activity
             android:name=".ItemPopularActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
-        <!--        <activity-->
-        <!--            android:name=".widget.OfflinePlayerNewActivity"-->
-        <!--            android:exported="false"-->
-        <!--            android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait" /> <!-- <activity -->
+        <!-- android:name=".widget.OfflinePlayerNewActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".LoginViaMobileActivity"
             android:exported="false"
@@ -184,8 +186,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity> <!-- facebook end -->
@@ -228,11 +232,7 @@
             android:label="@string/title_activity_details"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-
-
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".GoldDetailsActivity"
             android:configChanges="screenLayout|screenSize|orientation"
@@ -266,6 +266,7 @@
                 <data
                     android:host="open"
                     android:scheme="ott.hunter" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -282,30 +283,26 @@
                 <data
                     android:host="hunters.app.link"
                     android:scheme="https" />
-                <!--                <data-->
-                <!--                    android:host="primeplay.test-app.link"-->
-                <!--                    android:scheme="https" />-->
+                <!-- <data -->
+                <!-- android:host="primeplay.test-app.link" -->
+                <!-- android:scheme="https" /> -->
                 <data
                     android:host="hunters-alternate.app.link"
                     android:scheme="https" />
-                <!--                <data-->
-                <!--                    android:host="primeplay-alternate.test-app.link"-->
-                <!--                    android:scheme="https" />-->
+                <!-- <data -->
+                <!-- android:host="primeplay-alternate.test-app.link" -->
+                <!-- android:scheme="https" /> -->
             </intent-filter>
-        </activity>
-
-        <!-- Branch init -->
+        </activity> <!-- Branch init -->
         <meta-data
             android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_mscfPRS4dHJyMDhUkEG83kojFvnRrpMH" />
-        <!--        <meta-data-->
-        <!--            android:name="io.branch.sdk.BranchKey.test"-->
-        <!--            android:value="key_test_htkeKSJuGtD0L26zt30XKhpdzBhTFNDy" />-->
+            android:value="key_live_mscfPRS4dHJyMDhUkEG83kojFvnRrpMH" /> <!-- <meta-data -->
+        <!-- android:name="io.branch.sdk.BranchKey.test" -->
+        <!-- android:value="key_test_htkeKSJuGtD0L26zt30XKhpdzBhTFNDy" /> -->
         <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
         <meta-data
             android:name="io.branch.sdk.TestMode"
             android:value="false" />
-
 
         <activity
             android:name=".ItemMovieActivity"
@@ -339,33 +336,25 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ppapplogo" />
-        <!--        Test mode-->
+            android:resource="@drawable/ppapplogo" /> <!-- Test mode -->
         <meta-data
             android:name="CLEVERTAP_ACCOUNT_ID"
             android:value="8R9-4W4-Z96Z" />
         <meta-data
             android:name="CLEVERTAP_TOKEN"
             android:value="404-c2b" />
-
         <meta-data
             android:name="CLEVERTAP_REGION"
             android:value="in1" />
-        <!--
-               clevertap pull notofication and enable toggle button of pull notofication on clevertap dashbord-setting-setup-push notification
-        -->
+        <!--                clevertap pull notofication and enable toggle button of pull notofication on clevertap dashbord-setting-setup-push notification -->
         <meta-data
             android:name="CLEVERTAP_BACKGROUND_SYNC"
-            android:value="1"/>
-        <!--
-                clevertap Exclude in-app from Android Activity
-        -->
+            android:value="1" />
+        <!--                 clevertap Exclude in-app from Android Activity -->
         <meta-data
             android:name="CLEVERTAP_INAPP_EXCLUDE"
             android:value="SplashScreenActivity" />
-
         <!--
-
  Set color used with incoming notification messages. This is used when no color is set for the incoming
              notification message. See README(https://goo.gl/6BKBk7) for more.
         -->
@@ -382,7 +371,6 @@
             </intent-filter>
         </service>
 
-
         <receiver
             android:name=".firebaseservice.BootReceiver"
             android:enabled="true"
@@ -395,7 +383,6 @@
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
 
-
         <service
             android:name=".offlinedownload.DemoDownloadService"
             android:exported="false">
@@ -403,6 +390,7 @@
             <!-- This is needed for Scheduler -->
             <intent-filter>
                 <action android:name="com.google.android.exoplayer.downloadService.action.RESTART" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
