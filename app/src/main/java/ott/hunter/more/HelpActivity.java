@@ -53,7 +53,6 @@ public class HelpActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("push", MODE_PRIVATE);
         boolean isDark = sharedPreferences.getBoolean("dark", false);
 
-
         userId = PreferenceUtils.getUserId(HelpActivity.this);
 
         if (isDark) {
@@ -171,6 +170,7 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void savefeedback() {
         //dialog.show();

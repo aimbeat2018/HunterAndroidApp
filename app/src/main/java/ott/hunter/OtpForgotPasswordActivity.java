@@ -84,14 +84,12 @@ public class OtpForgotPasswordActivity extends AppCompatActivity {
                         + otp_edit_box3.getText().toString()
                         + otp_edit_box4.getText().toString();
 
-
                 if (from.equals("forgotactivity")) {
 
                     if (!otp.equals(forgot_otp)) {
 
                         Toast.makeText(OtpForgotPasswordActivity.this, "Enter Valid OTP", Toast.LENGTH_SHORT).show();
-
-
+                        
                     } else {
 
                         Intent intent = new Intent(OtpForgotPasswordActivity.this, ChangePasswordActivity.class);

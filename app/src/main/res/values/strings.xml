@@ -3,14 +3,30 @@
     <string name="fb_login_protocol_scheme" translatable="false">fb1816197382088745</string>
     <string name="facebook_application_id" translatable="false">1816197382088745</string>
     <string name="facebook_client_token" translatable="false">62576940cb049d34db9d63d14a96e622</string>
+
+ <!--
     //admob
     <string name="admob_application_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
     //startapp
+-->
 
-    <string name="app_name">Hunters</string>
+    //banner admob
+    <string name="admob_application_id" translatable="false">ca-app-pub-1505000717930669~2127375431</string>
+    <string name="admob_banner_unit_id" translatable="false">ca-app-pub-1505000717930669/5670479710</string>
+
+
+    <string name="admob_reward_unit_id" translatable="false">ca-app-pub-1505000717930669/4890142287</string>
+
+    //admon open app
+    <string name="admob_openapp_unit_id" translatable="false">ca-app-pub-1505000717930669/3946334501</string>
+
+
+    <string name="user_age" translatable="false">A 18+</string>
+
+
+    <string name="app_name" translatable="false">Hunters</string>
     <!--app_title for main navigation & home title-->
-    <string name="app_title">Hunters - Live TV &amp; Movie</string>
-    <string name="contact_email">customercare@hunters.co.in</string>
+    <string name="app_title" translatable="false">Hunters - Live TV &amp; Movie</string>
     <string name="copyright_text">Copyright @ Hunters, All right reserved</string>
 
     <!-- App -->
@@ -251,4 +267,56 @@
 
     <string name="cancel_str"><u>Cancel</u></string>
     <string name="dialog_option">%1$dp - %2$s</string>
+
+    <string name="select_language" translatable="false">Choose Language</string>
+    <string name="refund_policy">Refund Policy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="settings">Settings</string>
+    <string name="support_helpline">Support / Helpline</string>
+    <string name="subscription">Subscription</string>
+    <string name="watch_later">Watch Later</string>
+    <string name="profile">Profile</string>
+    <string name="family_zone">Family Zone</string>
+    <string name="login_register">Login | Register</string>
+
+
+    <string name="trailer">Trailer</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="agerestricted">                  Age-Restricted :</string>
+    <string name="maycontain">    May Contain Mature Content Nudity, Foul, Violence, Language.</string>
+    <string name="iam">I\'M Over 18</string>
+    <string name="enetrphone">Enter Phone Number to Continue</string>
+    <string name="continue1">Continue</string>
+    <string name="orcontinue1">Or Continue with </string>
+    <string name="loginotp">Login with OTP </string>
+    <string name="loginpassword">Login with password</string>
+    <string name="or">OR</string>
+    <string name="almostlogged">Almost Logged in !</string>
+    <string name="digitverification">Enter 4 digit verification code. We just sent you on</string>
+    <string name="submit">Submit</string>
+    <string name="resend">Resend</string>
+
+    <!--Languages-->
+    <string name="english" translatable="false">English</string>
+    <string name="hindi" translatable="false">Hindi</string>
+    <string name="hindi1" translatable="false">हिंदी</string>
+    <string name="tamil" translatable="false">Tamil</string>
+    <string name="tamil1" translatable="false">தமிழ்</string>
+    <string name="telugu" translatable="false">Telugu</string>
+    <string name="telugu1" translatable="false">తెలుగు</string>
+    <string name="marathi" translatable="false">Marathi</string>
+    <string name="marathi1" translatable="false">मराठी</string>
+    <string name="bengali" translatable="false">Bengali</string>
+    <string name="bengali1" translatable="false">বাংলা</string>
+    <string name="kannada" translatable="false">Kannada</string>
+    <string name="kannada1" translatable="false">ಕನ್ನಡ</string>
+    <string name="gujarati" translatable="false">Gujarati</string>
+    <string name="gujarati1" translatable="false">ગુજરાતી</string>
+    <string name="punjabi" translatable="false">Punjabi</string>
+    <string name="punjabi1" translatable="false">ਪੰਜਾਬੀ</string>
+    <string name="malayalam" translatable="false">Malayalam</string>
+    <string name="malayalam1" translatable="false">മലയാളം</string>
+
+
 </resources>

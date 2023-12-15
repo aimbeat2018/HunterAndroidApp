@@ -2,6 +2,7 @@ package ott.hunter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -63,6 +64,7 @@ import ott.hunter.network.model.Package;
 import ott.hunter.network.model.User;
 import ott.hunter.network.model.config.PaymentConfig;
 import ott.hunter.utils.ApiResources;
+import ott.hunter.utils.Constants;
 import ott.hunter.utils.PreferenceUtils;
 import ott.hunter.utils.ToastMsg;
 import retrofit2.Call;
@@ -81,6 +83,7 @@ public class RazorPayActivity extends AppCompatActivity implements PaymentResult
     TextView package_name, package_validity, price, txt_txn_id, txt_falied_reason;
     CardView card_paytm, card_payuMoney, card_cashfree;
     LinearLayout lnr_success, lnr_failed;
+    String str_user_age = "";
 
     private long mLastClickTime;
     User user;
@@ -101,6 +104,17 @@ public class RazorPayActivity extends AppCompatActivity implements PaymentResult
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_razor_pay);
+
+
+        try {
+            //  Block of code to try
+            SharedPreferences sharedPreferences = RazorPayActivity.this.getSharedPreferences(Constants.USER_AGE, MODE_PRIVATE);
+            str_user_age = sharedPreferences.getString("user_age", "20");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         progressBar = findViewById(R.id.progress_bar);
         aPackage = (Package) getIntent().getSerializableExtra("package");
         from = getIntent().getStringExtra("from");
@@ -155,7 +169,8 @@ public class RazorPayActivity extends AppCompatActivity implements PaymentResult
         Uri uri = new Uri.Builder()
                         .scheme("upi")
                         .authority("pay")
-                        .appendQueryParameter("pa", "webworld7.09@cmsidfc")
+                //.appendQueryParameter("pa", "webworld7.09@cmsidfc")
+                        .appendQueryParameter("pa", "eazypay.2q3bqj0hfyl3m3m@icici")
                         .appendQueryParameter("pn", "WEBWORLD MULTIMEDIA LLP")
                         .appendQueryParameter("tr", paytmOrderId)
                         .appendQueryParameter("tn", aPackage.getName())
@@ -475,6 +490,7 @@ public class RazorPayActivity extends AppCompatActivity implements PaymentResult
     }
 
 
+
     private String getPayUMoneyHas(String hashName, PayUHashGenerationListener hashGenerationListener, String hashData) {
         // dialog.show();
 
@@ -607,7 +623,7 @@ public class RazorPayActivity extends AppCompatActivity implements PaymentResult
         Call<ResponseBody> call = paymentApi.savePayment(AppConfig.API_KEY, aPackage.getPlanId(),
                 databaseHelper.getUserData().getUserId(),
                 aPackage.getPrice(),
-                token, from);
+                token,str_user_age, from);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

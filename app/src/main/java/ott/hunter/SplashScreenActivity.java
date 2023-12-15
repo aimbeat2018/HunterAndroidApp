@@ -71,6 +71,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
     private static final String TAG = "SplashScreen";
     private final int PERMISSION_REQUEST_CODE = 100;
     private int SPLASH_TIME = 1000;
@@ -241,6 +242,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     }
 
+
     private void initRemoteConfig() {
         if (!vpnStatus) {
             mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
@@ -289,7 +291,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         } else {
 
 
-
 /*
 
 //added splash video
@@ -310,12 +311,16 @@ public class SplashScreenActivity extends AppCompatActivity {
             myvideoview.start();
 */
 
-            Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+
+           Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+            //Intent intent = new Intent(SplashScreenActivity.this, ChooseLanguageActivity.class);
+            intent.putExtra("from", "splash");
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             finish();
+
 //            Branch.sessionBuilder(this).withCallback((referringParams, error) -> {
 //                if (error == null) {
 //                    Log.i("BRANCH SDK", referringParams.toString());

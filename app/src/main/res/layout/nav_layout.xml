@@ -11,6 +11,69 @@
     android:paddingBottom="8dp">
 
 
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/lnrChildContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/imgchildcontent"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:visibility="gone"
+                android:src="@drawable/outline_person_24"
+                app:tint="@color/default_text" />
+
+            <TextView
+                android:id="@+id/txtChildcontent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:gravity="center_horizontal"
+                android:text="@string/family_zone"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:id="@+id/relswitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Switch
+                    android:id="@+id/simpleSwitch"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:theme="@style/BrandedSwitch"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
     <LinearLayout
         android:id="@+id/lnrProfile"
         android:layout_width="match_parent"
@@ -36,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Profile"
+            android:text="@string/profile"
             android:textColor="@color/default_text"
             android:textSize="14sp" />
 
@@ -68,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Watch Later"
+            android:text="@string/watch_later"
             android:textColor="@color/default_text"
             android:textSize="14sp" />
 
@@ -132,7 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Support / Helpline"
+            android:text="@string/support_helpline"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -164,7 +227,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -228,7 +291,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Rate Us"
+            android:text="@string/rate_us"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -260,7 +323,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Privacy Policy"
+            android:text="@string/privacy_policy"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -324,11 +387,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="center_horizontal"
-            android:text="Refund Policy"
+            android:text="@string/refund_policy"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/lnrSignout"

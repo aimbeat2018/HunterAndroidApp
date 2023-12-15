@@ -137,9 +137,7 @@ public class ReelsActivity extends AppCompatActivity implements Player.Listener 
             }
         });
 
-
         getReelsList();
-
     }
 
     private void showMediaButton() {
@@ -326,7 +324,6 @@ public class ReelsActivity extends AppCompatActivity implements Player.Listener 
 //                            intent.putExtra(Intent.EXTRA_TEXT, finalShare);
 //                            startActivity(Intent.createChooser(intent, "Share"));
                         }
-
 
                         @Override
                         public void onDoubleClick(ReelsModel model, MotionEvent event, ItemReelsBinding binding) {

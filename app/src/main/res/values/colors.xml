@@ -13,11 +13,15 @@
     <color name="bg_home">#232323</color>
 
     <!--for tv-->
+    <color name="blackTrans">#80000000</color>
+
+    <color name="colorOrange">#F03E3B</color>
 
 
     <color name="paypalColor">#ffc43a</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="blueTextColor">#55688B</color>
 
 
     <color name="gray_light">#DDDED8</color>
@@ -44,6 +48,7 @@
     <color name="grayDark">#3A3939</color>
     <color name="green">#008000</color>
 
+    <color name="grayTextColor">#7E7E7E</color>
 
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>

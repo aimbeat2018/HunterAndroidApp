@@ -22,6 +22,7 @@
 
      </com.google.android.material.appbar.AppBarLayout>-->
 
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/ll_edtbox"
         android:layout_width="match_parent"
@@ -63,14 +64,12 @@
         android:layout_below="@+id/ll_edtbox"
         android:layout_alignParentBottom="true">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
+            android:gravity="center"
             android:orientation="vertical">
             <!--            android:padding="@dimen/spacing_mlarge"-->
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,7 +88,6 @@
                         android:orientation="vertical"
                         android:padding="@dimen/spacing_mlarge">
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -107,7 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:text="Enter Phone Number to Continue"
+                            android:text="@string/enetrphone"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/white"
                             android:textSize="16sp"
@@ -144,6 +142,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:visibility="gone"
                                 app:ccpDialog_backgroundColor="@color/white"
                                 app:ccp_arrowColor="@color/white"
                                 app:ccp_arrowSize="20dp"
@@ -153,6 +152,19 @@
                                 app:ccp_showArrow="true"
                                 app:ccp_showFlag="false"
                                 app:ccp_showNameCode="false" />
+
+
+                            <TextView
+                                android:id="@+id/txtcountryCode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="10dp"
+                                android:text="+91"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:visibility="visible" />
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/email"
@@ -246,7 +258,6 @@
                             android:textColor="@android:color/white"
                             android:visibility="visible" />
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -258,14 +269,16 @@
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            android:visibility="visible" />
+                            android:visibility="gone" />
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="@dimen/dimen_15dp"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:id="@+id/phoneAuthButton"

@@ -185,8 +185,9 @@
                     android:text="Please Subscribe...."
                     android:textSize="18sp" />
 
+
                 <Button
-                    android:id="@+id/subscribe_bt"
+                    android:id="@+id/subscribe_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"

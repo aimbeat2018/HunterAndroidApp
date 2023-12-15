@@ -11,4 +11,61 @@
     <dimen name="spacing_xlarge">35dp</dimen>
     <dimen name="spacing_xxlarge">50dp</dimen>
 
+
+
+
+
+    <dimen name="text_1">1sp</dimen>
+    <dimen name="text_2">2sp</dimen>
+    <dimen name="text_3">3sp</dimen>
+    <dimen name="text_4">4sp</dimen>
+    <dimen name="text_5">5sp</dimen>
+    <dimen name="text_6">6sp</dimen>
+    <dimen name="text_7">7sp</dimen>
+    <dimen name="text_8">8sp</dimen>
+    <dimen name="text_9">9sp</dimen>
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_11">11sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_13">13sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_15">15sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_17">17sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_19">19sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_21">21sp</dimen>
+    <dimen name="text_22">22sp</dimen>
+    <dimen name="text_23">23sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_25">25sp</dimen>
+    <dimen name="text_26">26sp</dimen>
+    <dimen name="text_27">27sp</dimen>
+    <dimen name="text_28">28sp</dimen>
+    <dimen name="text_29">29sp</dimen>
+    <dimen name="text_30">30sp</dimen>
+    <dimen name="text_31">31sp</dimen>
+    <dimen name="text_32">32sp</dimen>
+    <dimen name="text_33">33sp</dimen>
+    <dimen name="text_34">34sp</dimen>
+    <dimen name="text_35">35sp</dimen>
+    <dimen name="text_36">36sp</dimen>
+    <dimen name="text_37">37sp</dimen>
+    <dimen name="text_38">38sp</dimen>
+    <dimen name="text_39">39sp</dimen>
+    <dimen name="text_40">40sp</dimen>
+    <dimen name="text_41">41sp</dimen>
+    <dimen name="text_42">42sp</dimen>
+    <dimen name="text_43">43sp</dimen>
+    <dimen name="text_44">44sp</dimen>
+    <dimen name="text_45">45sp</dimen>
+    <dimen name="text_46">46sp</dimen>
+    <dimen name="text_47">47sp</dimen>
+    <dimen name="text_48">48sp</dimen>
+    <dimen name="text_49">49sp</dimen>
+    <dimen name="text_50">50sp</dimen>
+    <dimen name="margin_350">350dp</dimen>
+
+
 </resources>

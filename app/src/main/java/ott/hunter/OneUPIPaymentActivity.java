@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -32,6 +33,7 @@ import ott.hunter.network.model.ActiveStatus;
 import ott.hunter.network.model.Package;
 import ott.hunter.network.model.SubscriptionHistory;
 import ott.hunter.network.model.User;
+import ott.hunter.utils.Constants;
 import ott.hunter.utils.PreferenceUtils;
 import ott.hunter.utils.ToastMsg;
 import retrofit2.Call;
@@ -45,9 +47,7 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
     String order_token = "order_token";
     String cf_order_id = "cf_order_id";
     String order_status = "order_status";
-
     ProgressDialog dialog;
-
     String subscription_end_date = "";
 
     private static final String TAG = "OneUPIPaymentActivity";
@@ -55,6 +55,7 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
     static int min, max, create_otp;
     String plantamount = "";
     private Package aPackage;
+    String str_user_age = "";
 
   //  private DatabaseHelper databaseHelper;
 
@@ -79,6 +80,15 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
         clevertapChergedInstance.setDebugLevel(CleverTapAPI.LogLevel.VERBOSE);
 
         CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.VERBOSE);
+
+        try {
+            //  Block of code to try
+            SharedPreferences sharedPreferences = OneUPIPaymentActivity.this.getSharedPreferences(Constants.USER_AGE, MODE_PRIVATE);
+            str_user_age = sharedPreferences.getString("user_age", "20");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (getIntent() != null) {
             aPackage = (Package) getIntent().getSerializableExtra("package");
@@ -127,11 +137,13 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
         // START PAYMENT INITIALIZATION
         OneUPIPayment.Builder builder = new OneUPIPayment.Builder(this)
                 .with(paymentApp)
-                .setPayeeVpa("WEBWORLD7.09@cmsidfc")
+              //  .setPayeeVpa("WEBWORLD7.09@cmsidfc")
+                .setPayeeVpa("eazypay.2q3bqj0hfyl3m3m@icici")
                 .setPayeeName("Webworld Multimedia LLP")
                 .setTransactionId(transactionId)
                 .setTransactionRefId(transactionId)
-                .setPayeeMerchantCode("ae8e5dc9-d337-4a86-8a1b-c5232325d06c")//one upi marchant key
+              //  .setPayeeMerchantCode("ae8e5dc9-d337-4a86-8a1b-c5232325d06c")//one upi marchant key
+                .setPayeeMerchantCode("bb421baf-5412-4685-baba-5c4d2dcf8ff4")//one upi marchant key
                 .setDescription(aPackage.getName())
                 //.setAmount("1.00");
                 .setAmount(String.valueOf(float_plan_amount));
@@ -189,6 +201,8 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
     }
 
 
+
+
     private void onTransactionSuccess() {
         // Payment Success
         lnr_failed.setVisibility(View.GONE);
@@ -238,7 +252,7 @@ public class OneUPIPaymentActivity extends AppCompatActivity implements PaymentS
                 databaseHelper.getUserData().getUserId(),
                 aPackage.getPrice(),
                 // "1",
-                token, from);
+                token,str_user_age, from);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {

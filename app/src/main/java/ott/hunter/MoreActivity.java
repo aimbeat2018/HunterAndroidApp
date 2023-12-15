@@ -99,10 +99,12 @@ public class MoreActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     RelativeLayout relNotLogin;
     LinearLayout lnr_userdata;
-
+    Switch switchfamilycontent;
+    LinearLayout lnrSignout;
     /*Navigation layout*/
     ImageView imgProfile, imgWatchLater, imgSubscription, imgSupport, imgSettings, imgHelp, imgRateUs, imgPrivacyPolicy, imgTermsCondition, imgRefundPolicy, imgSignout;
     TextView txtProfile, txtWatchLater, txtSubscription, txtSupport, txtSettings, txtHelp, txtRateUs, txtPrivacyPolicy, txtTermsCondition, txtRefundPolicy, txtSignout;
+    public static boolean familycontent = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class MoreActivity extends AppCompatActivity {
         } else {
             setTheme(R.style.AppThemeLight);
         }
+
 
         super.onCreate(savedInstanceState);
 
@@ -183,6 +186,8 @@ public class MoreActivity extends AppCompatActivity {
         relNotLogin = findViewById(R.id.relNotLogin);
         lnr_userdata = findViewById(R.id.lnr_userdata);
 
+        switchfamilycontent = findViewById(R.id.simpleSwitch);
+
         /*Navigation Layout*/
         imgProfile = findViewById(R.id.imgProfile);
         imgWatchLater = findViewById(R.id.imgWatchLater);
@@ -207,6 +212,7 @@ public class MoreActivity extends AppCompatActivity {
         txtTermsCondition = findViewById(R.id.txtTermsCondition);
         txtRefundPolicy = findViewById(R.id.txtRefundPolicy);
         txtSignout = findViewById(R.id.txtSignout);
+        lnrSignout = findViewById(R.id.lnrSignout);
 
         themeSwitch.setChecked(isDark);
 
@@ -219,6 +225,39 @@ public class MoreActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Profile");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        if (familycontent) {
+
+            switchfamilycontent.setChecked(true);
+        }
+
+
+        switchfamilycontent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                if (b) {
+                    familycontent = true;
+
+                    SharedPreferences.Editor editor = getSharedPreferences(Constants.FAMILYCONTENTSTATUS, MODE_PRIVATE).edit();
+                    editor.putBoolean("familycontent", familycontent);
+                    editor.apply();
+
+                    Intent intent = new Intent(MoreActivity.this, MainActivity.class);
+                    startActivity(intent);
+
+                } else {
+                    familycontent = false;
+                    SharedPreferences.Editor editor = getSharedPreferences(Constants.FAMILYCONTENTSTATUS, MODE_PRIVATE).edit();
+                    editor.putBoolean("familycontent", familycontent);
+                    editor.apply();
+
+                    Intent intent = new Intent(MoreActivity.this, MainActivity.class);
+                    startActivity(intent);
+
+                }
+            }
+        });
 
 
         //----navDrawer------------------------
@@ -249,6 +288,16 @@ public class MoreActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         status = PreferenceUtils.isLoggedIn(this);
+
+        if (status) {
+
+            lnrSignout.setVisibility(View.VISIBLE);
+        } else {
+            lnrSignout.setVisibility(View.GONE);
+
+        }
+
+
         if (status) {
             PreferenceUtils.updateSubscriptionStatus(MoreActivity.this);
 
@@ -296,6 +345,7 @@ public class MoreActivity extends AppCompatActivity {
             lnr_userdata.setVisibility(View.GONE);
             relNotLogin.setVisibility(View.VISIBLE);
         }
+
 
         //set data and list adapter
 //        mAdapter = new NavigationAdapter(this, list, navMenuStyle);
@@ -800,6 +850,10 @@ public class MoreActivity extends AppCompatActivity {
             Intent intent = new Intent(MoreActivity.this, ProfileActivity.class);
             intent.putExtra("from", "more");
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(MoreActivity.this, LoginActivity.class);
+            startActivity(intent);
+
         }
     }
 
@@ -812,6 +866,10 @@ public class MoreActivity extends AppCompatActivity {
         if (status) {
             Intent intent = new Intent(MoreActivity.this, SubscriptionActivity.class);
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(MoreActivity.this, LoginActivity.class);
+            startActivity(intent);
+
         }
     }
 
@@ -819,8 +877,13 @@ public class MoreActivity extends AppCompatActivity {
         if (status) {
             Intent intent = new Intent(MoreActivity.this, FavActivity.class);
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(MoreActivity.this, LoginActivity.class);
+            startActivity(intent);
+
         }
     }
+
 
     public void onOnSupportClick(View view) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -829,17 +892,24 @@ public class MoreActivity extends AppCompatActivity {
 
     }
 
+
     public void onSettingsClick(View view) {
         Intent intent = new Intent(MoreActivity.this, SettingsActivity.class);
         startActivity(intent);
 
     }
 
+
     public void onHelpClick(View view) {
         if (status) {
             Intent intent = new Intent(MoreActivity.this, HelpActivity.class);
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(MoreActivity.this, LoginActivity.class);
+            startActivity(intent);
+
         }
+
 
     }
 

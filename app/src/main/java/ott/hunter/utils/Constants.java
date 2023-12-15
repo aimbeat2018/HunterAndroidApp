@@ -33,8 +33,12 @@ public class Constants {
 
         return dir.getPath();
     }
+    
 
     public static final String USER_LOGIN_STATUS = "login_status";
+    public static final String FAMILYCONTENTSTATUS = "family_status";
+    public static final String USER_AGE = "user_age";
+
     public static final String USER_PASSWORD_AVAILABLE = "pass_available";
 
     public static List<Genre> genreList = null;

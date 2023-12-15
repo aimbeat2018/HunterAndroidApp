@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             setTheme(R.style.AppThemeLight);
         }
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -183,6 +184,7 @@ public class LoginActivity extends AppCompatActivity {
         googleAuthButton.setOnClickListener(v -> googleSignIn());
 
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+
 
 
 //        etEmail.addTextChangedListener(new TextWatcher() {
@@ -710,7 +712,8 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, OtpActivity.class);
                             intent.putExtra("from", "device_change");
                             intent.putExtra("otp", otp);
-                            intent.putExtra("countryCode", ccp.getSelectedCountryCode());
+                          //  intent.putExtra("countryCode", ccp.getSelectedCountryCode());
+                            intent.putExtra("countryCode","91");
                             intent.putExtra("mobile_no", etEmail.getText().toString());
                             startActivity(intent);
                         } else {
@@ -749,8 +752,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
+
 
     private void checkMobile() {
         dialog.show();
@@ -765,7 +769,8 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(response.body().string());
                         String status = jsonObject.getString("status");
-                        String countryCode = ccp.getSelectedCountryCode();
+                       // String countryCode = ccp.getSelectedCountryCode();
+                        String countryCode = "91";
                         if (status.equals("1")) {
                             startActivity(new Intent(LoginActivity.this, LoginViaMobileActivity.class).putExtra("mobile", etEmail.getText().toString()).putExtra("countryCode", countryCode));
                         } else {
@@ -818,7 +823,8 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, OtpActivity.class);
                             intent.putExtra("from", "signup");
                             intent.putExtra("otp", otp);
-                            intent.putExtra("countryCode", ccp.getSelectedCountryCode());
+                          //  intent.putExtra("countryCode", ccp.getSelectedCountryCode());
+                            intent.putExtra("countryCode", "91");
                             intent.putExtra("mobile_no", etEmail.getText().toString());
                             startActivity(intent);
                         } else {

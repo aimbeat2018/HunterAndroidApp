@@ -1,5 +1,7 @@
 package ott.hunter;
 
+import static ott.hunter.MoreActivity.familycontent;
+
 import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AlertDialog updateDailog;
     CleverTapAPI clevertapDefaultInstance;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         RtlUtils.setScreenDirection(this);
@@ -140,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_main);
 
-      //to  get user  city location
+        //to  get user  city location
         clevertapDefaultInstance = CleverTapAPI.getDefaultInstance(getApplicationContext());
         clevertapDefaultInstance.enableDeviceNetworkInfoReporting(true);
         //for debug  logcat
@@ -210,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return true;
         }
     }
-
 
 
     private void initRemoteConfig() {
@@ -553,7 +555,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
+
     public void newUpdateDialog(String image) {
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.FAMILYCONTENTSTATUS, MODE_PRIVATE);
+        familycontent = sharedPreferences.getBoolean("familycontent", false);
+        if (familycontent == false) {
+
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.new_update_dialog_layout);
         dialog.setCancelable(true);
@@ -581,6 +592,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         dialog.show();
+        }
     }
 
     private void logoutUser(String id) {

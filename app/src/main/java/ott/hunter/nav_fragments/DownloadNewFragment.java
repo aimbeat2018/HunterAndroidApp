@@ -70,10 +70,11 @@ public class DownloadNewFragment extends Fragment {
     public static LinearLayout download_layout;
     public boolean isActive;
     RelativeLayout rel_rec;
-    private NoInternet activity;
-    Button subscribe_bt;
+    Button subscribe_btn;
+    private NoInternet noactivity;
 
     private MainActivity mainActivity;
+    String from = "";
 
     public void setMyItemMovie(ItemMovie myItemMovie) {
         this.myItemMovie = myItemMovie;
@@ -91,14 +92,31 @@ public class DownloadNewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_download_new, container, false);
         recyclerView = rootView.findViewById(R.id.recycler_view_downloaded_video);
-        subscribe_bt = rootView.findViewById(R.id.subscribe_bt);
+        subscribe_btn = rootView.findViewById(R.id.subscribe_button);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         rel_rec = rootView.findViewById(R.id.rel_rec);
         download_text = rootView.findViewById(R.id.download_text);
         download_text.setText("Downloads");
-        mainActivity = (MainActivity) getActivity();
+       // mainActivity = (MainActivity) getActivity();
+
+
+        try {
+            from = getArguments().getString("from");
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+        if (from.equals("nointernetactivity")) {
+            noactivity = (NoInternet) getActivity();
+
+        } else {
+            mainActivity = (MainActivity) getActivity();
+
+        }
+
 
         lyt_not_found = rootView.findViewById(R.id.lyt_not_found);
         download_layout = rootView.findViewById(R.id.download_layouts);
@@ -107,7 +125,7 @@ public class DownloadNewFragment extends Fragment {
         loadVideos();
 
 
-        subscribe_bt.setOnClickListener(new View.OnClickListener() {
+        subscribe_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (PreferenceUtils.isLoggedIn(mainActivity)) {

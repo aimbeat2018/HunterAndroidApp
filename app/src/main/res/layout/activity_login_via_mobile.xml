@@ -221,6 +221,7 @@
 
 
                         <TextView
+                            android:id="@+id/tv_password"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
@@ -228,7 +229,7 @@
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                             android:textColor="@color/blue_grey_300"
                             android:textSize="14sp"
-                            android:visibility="visible" />
+                            android:visibility="gone" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etPass"
@@ -240,7 +241,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:textSize="14sp"
-                            android:visibility="visible" />
+                            android:visibility="gone" />
 
 
                         <TextView
@@ -256,19 +257,20 @@
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold"
-                            android:visibility="visible" />
-
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/txt_login_with_otp"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginVertical="@dimen/dimen_25dp"
-                            android:text="Login with OTP"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/dimen_25dp"
+                            android:text="@string/loginotp"
+                            android:layout_marginHorizontal="20dp"
+
+                            android:background="@drawable/btn_rounded_primary"
+                            android:backgroundTint="@color/colorPrimary"
                             android:textColor="@color/white"
-                            android:textSize="16dp"
                             android:textStyle="bold" />
 
                         <LinearLayout
@@ -288,7 +290,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="@dimen/dimen_30dp"
-                                android:text="OR"
+                                android:text="@string/or"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="@color/gray_light"
                                 android:textSize="16dp" />
@@ -310,7 +312,7 @@
                             android:layout_marginVertical="20dp"
                             android:background="@drawable/login_field_button_red"
                             android:backgroundTint="@color/colorPrimary"
-                            android:text="Submit"
+                            android:text="@string/loginpassword"
                             android:textColor="@color/white" />
 
                         <ProgressBar

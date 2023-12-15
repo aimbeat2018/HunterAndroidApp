@@ -59,6 +59,10 @@ public class NoInternet extends AppCompatActivity {
                     .replace(R.id.fragment_container, fragment)
                     .commit();
 
+
+            Bundle bundle = new Bundle();
+            bundle.putString("from", "nointernetactivity");
+            fragment.setArguments(bundle);
             return true;
         }
         return false;

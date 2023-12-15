@@ -30,6 +30,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import ott.hunter.R;
 import ott.hunter.network.RetrofitClient;
+import ott.hunter.utils.Constants;
 import ott.hunter.utils.PreferenceUtils;
 import ott.hunter.utils.ApiResources;
 import ott.hunter.utils.RtlUtils;
@@ -63,6 +64,8 @@ public class PurchasePlanActivity extends AppCompatActivity implements PackageAd
     private boolean isDark;
     CleverTapAPI clevertapscreenviewd;
 
+    String str_user_age = "";
+
 
     private Package packageItem;
     private PaymentBottomShitDialog paymentBottomShitDialog;
@@ -78,6 +81,14 @@ public class PurchasePlanActivity extends AppCompatActivity implements PackageAd
 
         clevertapscreenviewd = CleverTapAPI.getDefaultInstance(getApplicationContext());
 
+        try {
+            //  Block of code to try
+            SharedPreferences sharedPreferences1 = PurchasePlanActivity.this.getSharedPreferences(Constants.USER_AGE, MODE_PRIVATE);
+            str_user_age = sharedPreferences1.getString("user_age", "20");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (isDark) {
             setTheme(R.style.AppThemeDark);
@@ -161,7 +172,7 @@ public class PurchasePlanActivity extends AppCompatActivity implements PackageAd
             Retrofit retrofit = RetrofitClient.getRetrofitInstance();
             PaymentApi paymentApi = retrofit.create(PaymentApi.class);
             Call<ResponseBody> call = paymentApi.savePayment(AppConfig.API_KEY, packageItem.getPlanId(), userId, packageItem.getPrice(),
-                    payId, "Paypal");
+                    payId,str_user_age, "Paypal");
 
             call.enqueue(new Callback<ResponseBody>() {
                 @Override

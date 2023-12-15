@@ -91,6 +91,7 @@ public class OtpActivity extends AppCompatActivity {
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         txt_otp.setText("Enter verification code. We just sent you on mobile number " + mobile);
 
+
         if (!countryCode.contains("91")) {
             otp_view.setVisibility(View.VISIBLE);
             otp_viewIndia.setVisibility(View.GONE);
@@ -99,6 +100,9 @@ public class OtpActivity extends AppCompatActivity {
             otp_view.setVisibility(View.GONE);
             otp_viewIndia.setVisibility(View.VISIBLE);
         }
+
+
+
 
 //        otp_view.setVisibility(View.VISIBLE);
 //        otp_viewIndia.setVisibility(View.GONE);

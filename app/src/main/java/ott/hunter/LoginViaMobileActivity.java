@@ -56,7 +56,7 @@ public class LoginViaMobileActivity extends AppCompatActivity {
     TextView forgotPass, txtcountryCode;
     private ProgressDialog dialog;
     private View backgroundView;
-    TextView txt_login_with_otp;
+    TextView txt_login_with_otp,tv_password;
     private String deviceId = "";
     private String firebaseToken = "", mobile = "", countryCode = "";
 
@@ -101,6 +101,7 @@ public class LoginViaMobileActivity extends AppCompatActivity {
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         etEmail = findViewById(R.id.email);
+        tv_password = findViewById(R.id.tv_password);
         btnReset = findViewById(R.id.reset_pass);
         etPass = findViewById(R.id.etPass);
         txt_login_with_otp = findViewById(R.id.txt_login_with_otp);
@@ -129,6 +130,12 @@ public class LoginViaMobileActivity extends AppCompatActivity {
         });
 
         btnReset.setOnClickListener(v -> {
+
+
+            etPass.setVisibility(View.VISIBLE);
+            tv_password.setVisibility(View.VISIBLE);
+            forgotPass.setVisibility(View.VISIBLE);
+
 
             /*if (!isValidEmailAddress(etEmail.getText().toString())) {
                 new ToastMsg(LoginActivity.this).toastIconError("Please enter valid email");

@@ -35,6 +35,8 @@ public class PreferenceUtils {
         }
     }
 
+
+
     public static boolean isLoggedIn(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(Constants.USER_LOGIN_STATUS, Context.MODE_PRIVATE);
         return preferences.getBoolean(Constants.USER_LOGIN_STATUS, false);

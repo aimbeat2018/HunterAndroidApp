@@ -164,5 +164,7 @@
         <item name="android:drawablePadding">30dp</item>
     </style>
 
-
+    <style name="BrandedSwitch" parent="AppTheme">
+        <item name="colorAccent">#E53935</item>
+    </style>
 </resources>

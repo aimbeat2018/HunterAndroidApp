@@ -452,7 +452,10 @@ public class EpisodeAdapter extends RecyclerView.Adapter<EpisodeAdapter.Original
         }*/
 
 
+
+
         holder.cardView.setOnClickListener(v -> {
+
 
             if (deviceNoDynamic != null) {
                 if (!deviceNoDynamic.equals("")) {

@@ -2,6 +2,10 @@ package ott.hunter;
 
 
 import static android.content.Context.MODE_PRIVATE;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
+import static ott.hunter.MoreActivity.familycontent;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -158,7 +162,7 @@ public class HomeFragment extends Fragment {
     private DatabaseHelper db = new DatabaseHelper(getContext());
     private HomeContentViewModel homeContentViewModel;
     private HomeContent homeContent = null;
-    private RelativeLayout popular_stars_layout, featuredTVLayout, movieLayout, tvSeriesLayout;
+    private RelativeLayout popular_stars_layout, featuredTVLayout, movieLayout, tvSeriesLayout, slider_Rlayout;
     private ContinueWatchingViewModel continueWatchingViewModel;
     private LinePageIndicator circleIndicator;
     private Handler mHandler;
@@ -168,7 +172,10 @@ public class HomeFragment extends Fragment {
     Button btn_more_Gold;
     RecyclerView recyclerViewGold;
     ImageView imgFree;
-ImageButton fblink,instalink,youtubelink,twitterlink;
+    ImageButton fblink, instalink, youtubelink, twitterlink;
+    Slider slider;
+
+    SliderListAdapter sliderAdapter;
 
     @Nullable
     @Override
@@ -184,6 +191,11 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db = new DatabaseHelper(getContext());
+
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(Constants.FAMILYCONTENTSTATUS, MODE_PRIVATE);
+        familycontent = sharedPreferences.getBoolean("familycontent", false);
+
 
         btnMoreSeries = view.findViewById(R.id.btn_more_series);
 
@@ -227,6 +239,7 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
         tvGoldTitleLayout = view.findViewById(R.id.tvGoldTitleLayout);
         btn_more_Gold = view.findViewById(R.id.btn_more_Gold);
         recyclerViewGold = view.findViewById(R.id.recyclerViewGold);
+        slider_Rlayout = view.findViewById(R.id.lytSlider);
 
 
         imgFree.setOnClickListener(v -> {
@@ -325,7 +338,6 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                 }
             }
         });
-
 
 
         // --- genre recycler view ---------
@@ -428,7 +440,52 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                 listGenre.clear();
                 popularStarsList.clear();
 
+
                 if (new NetworkInst(getContext()).isNetworkAvailable()) {
+//                    getHomeContentDataFromServer();
+
+                    if (familycontent) {
+
+                        try {
+                            slider.getSlideArrayList().clear();
+                            sliderAdapter.notifyDataSetChanged();
+                            slider_Rlayout.setVisibility(GONE);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        getFamilyContententFromServer();
+                    } else {
+                        try {
+                            slider.getSlideArrayList().clear();
+                            sliderAdapter.notifyDataSetChanged();
+                            slider_Rlayout.setVisibility(GONE);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        getHomeContentDataFromServer();
+                    }
+
+
+                    if (PreferenceUtils.getUserId(activity) != null)
+                        if (!PreferenceUtils.getUserId(activity).equals(""))
+                            getProfile(PreferenceUtils.getUserId(activity));
+
+                } else {
+                    tvNoItem.setText(getString(R.string.no_internet));
+                    shimmerFrameLayout.stopShimmer();
+                    shimmerFrameLayout.setVisibility(View.GONE);
+                    swipeRefreshLayout.setRefreshing(false);
+                    coordinatorLayout.setVisibility(View.VISIBLE);
+                    scrollView.setVisibility(View.GONE);
+                }
+
+
+
+
+
+
+               /* if (new NetworkInst(getContext()).isNetworkAvailable()) {
                     getHomeContentDataFromServer();
                     if (PreferenceUtils.isLoggedIn(activity))
                         getProfile(PreferenceUtils.getUserId(activity));
@@ -440,7 +497,7 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                     swipeRefreshLayout.setRefreshing(false);
                     coordinatorLayout.setVisibility(View.VISIBLE);
                     scrollView.setVisibility(View.GONE);
-                }
+                }*/
             }
         });
 
@@ -462,7 +519,32 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getHomeContentDataFromServer();
+                // getHomeContentDataFromServer();
+
+                if (familycontent) {
+
+                    try {
+                        slider.getSlideArrayList().clear();
+                        sliderAdapter.notifyDataSetChanged();
+                        slider_Rlayout.setVisibility(GONE);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    getFamilyContententFromServer();
+                } else {
+
+                    try {
+                        slider.getSlideArrayList().clear();
+                        sliderAdapter.notifyDataSetChanged();
+                        slider_Rlayout.setVisibility(GONE);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    getHomeContentDataFromServer();
+                }
+
             }
         }, 1000);
 
@@ -471,6 +553,47 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
 //        }
     }
 
+
+    private void getFamilyContententFromServer() {
+
+        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
+        HomeContentApi api = retrofit.create(HomeContentApi.class);
+        Call<HomeContent> call = api.getFamilyContent(AppConfig.API_KEY, PreferenceUtils.getUserId(activity));
+
+        call.enqueue(new Callback<HomeContent>() {
+            @Override
+            public void onResponse(Call<HomeContent> call, Response<HomeContent> response) {
+
+                if (response.code() == 200) {
+
+                    //insert data to room database
+                    // homeContentViewModel = ViewModelProviders.of(getActivity()).get(HomeContentViewModel.class);
+                    homeContent = response.body();
+                    homeContent.setHomeContentId(1);
+                    homeContentViewModel.insert(homeContent);
+
+                    populateViews();
+                    swipeRefreshLayout.setRefreshing(false);
+                    shimmerFrameLayout.stopShimmer();
+                    shimmerFrameLayout.setVisibility(View.GONE);
+                    coordinatorLayout.setVisibility(View.GONE);
+                    scrollView.setVisibility(View.VISIBLE);
+
+                } else {
+                    swipeRefreshLayout.setRefreshing(false);
+                    shimmerFrameLayout.stopShimmer();
+                    shimmerFrameLayout.setVisibility(View.GONE);
+                    coordinatorLayout.setVisibility(View.VISIBLE);
+                    scrollView.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HomeContent> call, Throwable t) {
+
+            }
+        });
+    }
 
     private void setAutoSwipable(ArrayList<Slide> slideArrayList) {
         mHandler = new Handler();
@@ -542,13 +665,16 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
         sliderAdapter.notifyDataSetChanged();*/
 
         if (!slider.getSlideArrayList().isEmpty()) {
-            sliderLayout.setVisibility(View.VISIBLE);
+
+            //   sliderLayout.setVisibility(View.VISIBLE);
+
+            slider_Rlayout.setVisibility(VISIBLE);
+
             SliderListAdapter sliderAdapter = new SliderListAdapter(activity, slider.getSlideArrayList());
 
             viewPager.setAdapter(sliderAdapter);
             viewPager.setOffscreenPageLimit(1);
             viewPager.setClipToPadding(false);
-
 
 /*
             viewPager.setPadding(-10, 0, -10, 0);
@@ -572,6 +698,7 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                     currentPage = position;
 //                    itemChannel = sliderList.get(position);
                 }
+
 
                 @Override
                 public void onPageScrollStateChanged(int state) {
@@ -622,21 +749,29 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
             }
         }*/
 
-        //tv channel data
-        if (homeContent.getFeaturedTvChannel().size() > 0) {
-            for (int i = 0; i < homeContent.getFeaturedTvChannel().size(); i++) {
-                FeaturedTvChannel tvChannel = homeContent.getFeaturedTvChannel().get(i);
-                CommonModels models = new CommonModels();
-                models.setImageUrl(tvChannel.getPosterUrl());
-                models.setTitle(tvChannel.getTvName());
-                models.setVideoType("tv");
-                models.setId(tvChannel.getLiveTvId());
-                models.setIsPaid(tvChannel.getIsPaid());
-                listTv.add(models);
+
+
+        try {
+            //tv channel data
+            if (homeContent.getFeaturedTvChannel().size() > 0) {
+                for (int i = 0; i < homeContent.getFeaturedTvChannel().size(); i++) {
+                    FeaturedTvChannel tvChannel = homeContent.getFeaturedTvChannel().get(i);
+                    CommonModels models = new CommonModels();
+                    models.setImageUrl(tvChannel.getPosterUrl());
+                    models.setTitle(tvChannel.getTvName());
+                    models.setVideoType("tv");
+                    models.setId(tvChannel.getLiveTvId());
+                    models.setIsPaid(tvChannel.getIsPaid());
+                    listTv.add(models);
+                }
+                featuredTVLayout.setVisibility(View.VISIBLE);
+                adapterTv.notifyDataSetChanged();
             }
-            featuredTVLayout.setVisibility(View.VISIBLE);
-            adapterTv.notifyDataSetChanged();
+        } catch (Exception e) {
+
         }
+
+
 
 
        /* //latest movies data
@@ -672,7 +807,9 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                 models.setIsPaid(movie.getIsPaid());
                 listMovie.add(models);
             }
-            movieLayout.setVisibility(View.VISIBLE);
+
+            //  movieLayout.setVisibility(View.VISIBLE);
+            movieLayout.setVisibility(GONE);
             adapterMovie.notifyDataSetChanged();
         }
 
@@ -691,7 +828,8 @@ ImageButton fblink,instalink,youtubelink,twitterlink;
                 models.setIsPaid(tvSeries.getIsPaid());
                 listSeries.add(models);
             }
-            tvSeriesLayout.setVisibility(View.VISIBLE);
+            // tvSeriesLayout.setVisibility(View.VISIBLE);
+            tvSeriesLayout.setVisibility(GONE);
             adapterSeries.notifyDataSetChanged();
         }
 

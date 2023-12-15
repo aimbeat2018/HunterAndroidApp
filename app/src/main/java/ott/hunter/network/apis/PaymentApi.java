@@ -17,6 +17,7 @@ public interface PaymentApi {
                                    @Field("user_id") String userId,
                                    @Field("paid_amount") String paidAmount,
                                    @Field("payment_info") String paymentInfo,
+                                   @Field("age") String age,
                                    @Field("payment_method") String paymentMethod);
 
 

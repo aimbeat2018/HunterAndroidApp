@@ -52,6 +52,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:usesCleartextTraffic,android:theme,android:allowBackup">
         <activity
+            android:name=".AgrrepayActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".OneUPIPaymentActivity"
             android:exported="false">
             <meta-data
@@ -232,7 +239,7 @@
             android:label="@string/title_activity_details"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".GoldDetailsActivity"
             android:configChanges="screenLayout|screenSize|orientation"
@@ -333,6 +340,7 @@
             android:name=".DownloadActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Nobar" />
+        <activity android:name=".ChooseLanguageActivity" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -345,12 +353,10 @@
             android:value="404-c2b" />
         <meta-data
             android:name="CLEVERTAP_REGION"
-            android:value="in1" />
-        <!--                clevertap pull notofication and enable toggle button of pull notofication on clevertap dashbord-setting-setup-push notification -->
+            android:value="in1" /> <!-- clevertap pull notofication and enable toggle button of pull notofication on clevertap dashbord-setting-setup-push notification -->
         <meta-data
             android:name="CLEVERTAP_BACKGROUND_SYNC"
-            android:value="1" />
-        <!--                 clevertap Exclude in-app from Android Activity -->
+            android:value="1" /> <!-- clevertap Exclude in-app from Android Activity -->
         <meta-data
             android:name="CLEVERTAP_INAPP_EXCLUDE"
             android:value="SplashScreenActivity" />
@@ -399,5 +405,6 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
+
 
 </manifest>

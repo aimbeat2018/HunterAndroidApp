@@ -15,4 +15,8 @@ public interface HomeContentApi {
 
     @GET("home_content_for_android")
     Call<ResponseBody> getCountry(@Header("API-KEY") String apiKey, @Query("user_id") String userId);
+
+
+    @GET("home_safe_content_for_android")
+    Call<HomeContent> getFamilyContent(@Header("API-KEY") String apiKey,@Query("user_id") String userId);
 }

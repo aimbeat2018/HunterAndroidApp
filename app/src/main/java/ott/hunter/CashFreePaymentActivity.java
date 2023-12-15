@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -47,6 +48,7 @@ import ott.hunter.network.model.ActiveStatus;
 import ott.hunter.network.model.Package;
 import ott.hunter.network.model.SubscriptionHistory;
 import ott.hunter.network.model.User;
+import ott.hunter.utils.Constants;
 import ott.hunter.utils.PreferenceUtils;
 import ott.hunter.utils.ToastMsg;
 import retrofit2.Call;
@@ -79,11 +81,22 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
             lnr_failed;
     private ProgressBar progressBar;
 
+    String str_user_age = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cash_free_payment);
+
+
+        try {
+            //  Block of code to try
+            SharedPreferences sharedPreferences = CashFreePaymentActivity.this.getSharedPreferences(Constants.USER_AGE, MODE_PRIVATE);
+            str_user_age = sharedPreferences.getString("user_age", "20");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (getIntent() != null) {
             aPackage = (Package) getIntent().getSerializableExtra("package");
@@ -120,7 +133,8 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
         order_id = String.valueOf(create_otp);
         orderID = order_id;
        getToken(order_id, aPackage.getPrice());
-      // getToken(order_id, "1");
+       //getToken(order_id, "1");
+
 
 
         clevertapChergedInstance= CleverTapAPI.getDefaultInstance(getApplicationContext());
@@ -161,9 +175,12 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
         try {
             CFSession cfSession = new CFSession.CFSessionBuilder()
                     .setEnvironment(cfEnvironment)
-                    .setOrderToken(token)
+                   .setOrderToken(token)
+                    //.setPaymentSessionID(token)
                     .setOrderId(order_id)
                     .build();
+
+
             CFPaymentComponent cfPaymentComponent = new CFPaymentComponent.CFPaymentComponentBuilder()
                     .add(CFPaymentComponent.CFPaymentModes.CARD)
                     .add(CFPaymentComponent.CFPaymentModes.UPI)
@@ -371,6 +388,7 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
         requestQueue.add(stringRequest);
     }
 
+
     public void  saveChargeData(String token, String from) {
         progressBar.setVisibility(View.VISIBLE);
         Retrofit retrofit = RetrofitClient.getRetrofitInstance();
@@ -379,7 +397,7 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
                 databaseHelper.getUserData().getUserId(),
                 aPackage.getPrice(),
             //   "1",
-                token, from);
+                token,str_user_age, from);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
@@ -401,7 +419,6 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
 
                     updateActiveStatus();
 
-
                     getSubscriptionHistory(plantamount);
                 } else {
                     new ToastMsg(CashFreePaymentActivity.this).toastIconError(getString(R.string.something_went_wrong));
@@ -420,6 +437,9 @@ public class CashFreePaymentActivity extends AppCompatActivity implements CFChec
         });
 
     }
+
+
+
 
     private void getSubscriptionHistory(String plantamount) {
         Retrofit retrofit = RetrofitClient.getRetrofitInstance();

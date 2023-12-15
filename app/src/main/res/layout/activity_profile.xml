@@ -120,6 +120,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailField"
                     android:layout_width="match_parent"
@@ -150,6 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:visibility="gone"
                         app:ccpDialog_backgroundColor="@color/white"
                         app:ccp_arrowColor="@color/white"
                         app:ccp_arrowSize="20dp"
@@ -159,7 +161,17 @@
                         app:ccp_showArrow="true"
                         app:ccp_showFlag="false"
                         app:ccp_showNameCode="false" />
-
+                    <TextView
+                        android:id="@+id/txtcountryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="10dp"
+                        android:text="+91"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:visibility="visible" />
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phone"
                         android:layout_width="match_parent"
